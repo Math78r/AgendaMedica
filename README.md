@@ -417,8 +417,12 @@ La API estará disponible en `https://localhost:{puerto}/scalar` .
 ![Regla2V1](Infrastructure/SQL/Regla2deNegocoV1.png)
 ---
 ### MUETSRA DE FUNCIONAMIENTO DE CONSULTA DE TODOS LOS PACIENTES
-![ConsultaPacientes](Infrastructure/SQL/funcionamientoPaciente.pgn)
+![ConsultaPacientes](Infrastructure/SQL/funcionamientoPaciente.png)
 ---
+###IMPORTANTE!!!  EL SCRIPT CON EL DISEÑO DE LAS TABLAS, DE STORES PROCEDURES Y DATOS DE PRUEBA SE ENCUENTRAN EN LA RUTA TEMPORAL: Infrastructure/SQL/Script_MiniAgendaMedica.sql
+
+---
+
 # Nota sobre Delphi
 
 ## 📌 Descripción
