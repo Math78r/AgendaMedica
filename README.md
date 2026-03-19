@@ -414,9 +414,10 @@ La API estará disponible en `https://localhost:{puerto}/scalar` .
 ![Regla1V1](Infrastructure/SQL/Regla1deNegocoV1.png)
 ![Regla1V2](Infrastructure/SQL/Regla1deNegocoV2.png)
 **Regla de negocio 2  implementada 
-![Diagrama BD V1](Infrastructure/SQL/Regla1deNegocoV1.png)
-
-
+![Regla2V1](Infrastructure/SQL/Regla2deNegocoV1.png)
+---
+### MUETSRA DE FUNCIONAMIENTO DE CONSULTA DE TODOS LOS PACIENTES
+![ConsultaPacientes](Infrastructure/SQL/funcionamientoPaciente.pgn)
 ---
 # Nota sobre Delphi
 
