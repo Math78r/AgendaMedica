@@ -6,7 +6,7 @@ using Infrastructure.Persistence.Dapper;
 using Scalar.AspNetCore;
 using Serilog;
 var builder = WebApplication.CreateBuilder(args);
-
+Console.WriteLine("Cadena: " + builder.Configuration.GetConnectionString("MiServer"));
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();

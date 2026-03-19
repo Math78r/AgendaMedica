@@ -10,7 +10,8 @@ namespace Application.Interfaces.Repositories
 {
     public interface IPacienteService
     {
-        Task<IEnumerable<Paciente>> ListarAsync();
+         Task<IEnumerable<Paciente>> ListarAsync();
+
         Task<Paciente?> ObtenerPorIdAsync(int idPaciente);
         Task<int> AgregarAsync(CrearPacienteRequestDto paciente);
         Task ActualizarAsync(ActualizarPacienteRequestDto paciente);

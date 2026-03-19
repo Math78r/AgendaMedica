@@ -19,6 +19,6 @@ namespace Infrastructure.Persistence.Dapper
         }
 
         public IDbConnection CreateConnection()
-            => new SqlConnection(_config.GetConnectionString("Default"));
+            => new SqlConnection(_config.GetConnectionString("MiServer"));
     }
 }

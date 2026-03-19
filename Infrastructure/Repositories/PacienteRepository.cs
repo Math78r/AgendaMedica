@@ -4,7 +4,7 @@ using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Models;
 using Infrastructure.Persistence.Dapper;
-using Infrastructure.Models;
+
 using System.Data;
 public class PacienteRepository : IPacienteRepository
 {
@@ -31,7 +31,7 @@ public class PacienteRepository : IPacienteRepository
         parameters.Add("@Nombre", paciente.Nombre);
         parameters.Add("@Apellido", paciente.Apellido);
         parameters.Add("@FechaNacimiento", paciente.FechaNacimiento);
-        parameters.Add("@Telefono", paciente.Telefono);
+        parameters.Add("@Telefono", paciente.NumTelefono);
         parameters.Add("@Correo", paciente.Correo);
 
         using var connection = _context.CreateConnection();
@@ -68,25 +68,21 @@ public class PacienteRepository : IPacienteRepository
         throw new NotImplementedException();
     }
 
-    public async Task<IEnumerable<ConsultaPacienteDtoRequestDto>> ListarAsync()
-    {
-        using var connection = _context.CreateConnection();
-
-        var pacientes = await connection.QueryAsync<ConsultaPacienteDtoRequestDto>(
-            "sp_Pacientes_Consultar",
-            commandType: CommandType.StoredProcedure
-        );
-
-        return pacientes;
-    }
-
+   
     public Task<Paciente?> ObtenerPorIdAsync(int idPaciente)
     {
         throw new NotImplementedException();
     }
 
-    Task<IEnumerable<Paciente>> IPacienteRepository.ListarAsync()
+    public async Task<IEnumerable<Paciente>> ListarAsync()
     {
-        throw new NotImplementedException();
+        using var connection = _context.CreateConnection();
+
+        var pacientes = await connection.QueryAsync<Paciente>(
+            "sp_Pacientes_Consultar",
+            commandType: CommandType.StoredProcedure
+        );
+
+        return pacientes;
     }
 }
