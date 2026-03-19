@@ -401,17 +401,252 @@ cd AgendaMedica.API
 dotnet run
 ```
 
-La API estará disponible en `https://localhost:{puerto}/swagger` (una vez integrado Swagger).
+La API estará disponible en `https://localhost:{puerto}/scalar` .
 
 ---
 ### Diagrama de base de datos
 ![Diagrama BD V1](Infrastructure/SQL/diagrama_bd_v1.png)
 ![Diagrama BD V2](Infrastructure/SQL/diagrama_bd_v2.png)
 ---
+# Nota sobre Delphi
+
+## 📌 Descripción
+
+Migraría a una arquitectura moderna basada en:
+
+* **.NET (ASP.NET Core)**
+* **Clean Architecture**
+* **SQL Server**
+* **Buenas prácticas de diseño (DDD, separación de responsabilidades)**
+
+Mi enfoque no es una migración directa del código, sino una **reingeniería del sistema**, extrayendo reglas de negocio y reconstruyéndolo de forma escalable y mantenible.
+
+---
+
+## Yo entiendo que Delphi es:
+
+**Delphi** es un entorno de desarrollo basado en **Object Pascal**, ampliamente utilizado en sistemas empresariales antiguos (especialmente en hospitales y clínicas).
+
+### Características principales:
+
+* Desarrollo visual (drag & drop)
+* Lógica basada en eventos (`OnClick`, `OnCreate`, etc.)
+* Acceso directo a base de datos
+* Alta velocidad de desarrollo (pero bajo desacoplamiento)
+
+### Ejemplo típico en Delphi:
+
+```pascal
+procedure TForm1.btnGuardarClick(Sender: TObject);
+begin
+  InsertarPaciente(EditNombre.Text);
+end;
+```
+
+🔴 Problema:
+La lógica de negocio, UI y acceso a datos están **acoplados**.
+
+---
+
+## Los Problemas del sistema legacy (Delphi) que he encotrado tras una investigación son:
+
+*  Lógica de negocio mezclada con UI
+*  Uso de queries directas sin abstracción
+*  Difícil mantenimiento y escalabilidad
+*  No preparado para APIs o aplicaciones móviles
+*  Validaciones duplicadas (UI, SPs, código)
+
+---
+
+## Yo opino que el enfoque incorrecto de migración es: 
+
+>  Convertir código Delphi → C# línea por línea
+
+Esto genera:
+
+* Código difícil de mantener
+* Persistencia de malas prácticas
+* Baja escalabilidad
+
+---
+
+## Y que el  enfoque correcto es: Realizar reingeniería por capas. Para eso haría los siguientes pasos:
+
+###  1. Extracción de reglas de negocio (Domain)
+
+Se identifican y modelan las reglas clave:
+
+* Validación de citas médicas
+* Disponibilidad de médicos
+* Estados de la cita
+* Restricciones de horario
+
+ Se implementa en la capa **Domain**
+
+---
+
+###  2. Capa de Aplicación (Application)
+
+Define los casos de uso:
+
+* DTOs (`Request / Response`)
+* Interfaces de servicios
+* Validaciones con **FluentValidation**
+
+Ejemplo:
+
+```csharp
+public class CrearPacienteRequestDto
+{
+    public string Nombre { get; set; }
+    public string Apellido { get; set; }
+}
+```
+
+---
+
+###  3. Infraestructura (Infrastructure)
+
+Implementación técnica:
+
+* Acceso a datos (Dapper / EF Core)
+* Repositorios
+* Integraciones externas
+
+---
+
+###  4. API (Presentation)
+
+Exposición del sistema:
+
+* ASP.NET Core Web API
+* Controllers
+* Configuración de servicios
+
+---
+
+###  5. Base de Datos
+
+Opciones:
+
+* Reutilizar SQL Server existente
+* Optimizar Stored Procedures
+* Migrar lógica crítica a la API (recomendado)
+
+---
+
+## También tendría estas consideraciones clave en la migración
+
+###  1. Lógica oculta en UI (Delphi)
+
+Buscar en:
+
+* Eventos (`OnClick`, `OnChange`)
+* Formularios
+* Código inline
+
+ Extraer y llevar a **Domain**
+
+---
+
+###  2. Validaciones duplicadas
+
+Puede haber reglas en:
+
+* UI
+* Stored Procedures
+* Código Delphi
+
+ Centralizar en **Domain**
+
+---
+
+###  3. Dependencia fuerte a la base de datos
+
+Delphi suele ejecutar queries directas:
+
+```sql
+SELECT * FROM Citas WHERE IdMedico = @Id
+```
+
+ En la nueva arquitectura:
+
+* Repositorios
+* Servicios
+* DTOs
+
+---
+
+###  4. Manejo de fechas
+
+Cuidado con diferencias entre:
+
+* Delphi (`TDateTime`)
+* .NET (`DateTime`, `DateOnly`, `TimeOnly`)
+
+---
+
+## 🔄 Comparación: Delphi vs Nueva Arquitectura
+
+| Delphi (Legacy)  | Nueva Arquitectura   |
+| ---------------- | -------------------- |
+| Forms (UI)       | API + Frontend       |
+| Object Pascal    | C#                   |
+| Lógica en UI     | Domain + Application |
+| Queries directas | Repositorios         |
+| Acoplado         | Desacoplado          |
+| Difícil escalar  | Escalable            |
+
+---
+
+##  Ejemplo de flujo: Agendar Cita
+
+### En Delphi:
+
+* Evento en botón (`OnClick`)
+* Validación inline
+* Inserción directa en BD
+
+### En nueva arquitectura:
+
+#### 1. Domain
+
+* Entidad `Cita`
+* Métodos: `Confirmar()`, `Cancelar()`
+
+#### 2. Application
+
+* Caso de uso: `CrearCita`
+* Validaciones
+
+#### 3. Infrastructure
+
+* Repositorio de citas
+
+#### 4. API
+
+* Endpoint: `POST /citas`
+
+---
+
+
+##  Mi objetivo es:
+
+Construir un sistema:
+
+* Escalable
+* Mantenible
+* Desacoplado
+* Preparado para  su implementación
+
+---
+
+
+---
 ## Licencia
 
 Proyecto de evaluación técnica — uso interno.
-
+---
 ## Nota final
 El proyecto se encuentra en **desarrollo activo** y continuará evolucionando.
 
