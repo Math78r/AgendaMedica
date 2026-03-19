@@ -460,7 +460,7 @@ La lógica de negocio, UI y acceso a datos están **acoplados**.
 
 ## Yo opino que el enfoque incorrecto de migración es: 
 
-> ❌ Convertir código Delphi → C# línea por línea
+>  Convertir código Delphi → C# línea por línea
 
 Esto genera:
 
@@ -545,7 +545,7 @@ Buscar en:
 * Formularios
 * Código inline
 
-👉 Extraer y llevar a **Domain**
+ Extraer y llevar a **Domain**
 
 ---
 
