@@ -408,6 +408,16 @@ La API estará disponible en `https://localhost:{puerto}/scalar` .
 ![Diagrama BD V1](Infrastructure/SQL/diagrama_bd_v1.png)
 ![Diagrama BD V2](Infrastructure/SQL/diagrama_bd_v2.png)
 ---
+
+### REGLAS DE NEGOCIO
+**Regla de negocio 1 no implementada todavía,en desarrollo
+![Regla1V1](Infrastructure/SQL/Regla1deNegocoV1.png)
+![Regla1V2](Infrastructure/SQL/Regla1deNegocoV2.png)
+**Regla de negocio 2  implementada 
+![Diagrama BD V1](Infrastructure/SQL/Regla1deNegocoV1.png)
+
+
+---
 # Nota sobre Delphi
 
 ## 📌 Descripción
