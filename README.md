@@ -419,7 +419,7 @@ La API estará disponible en `https://localhost:{puerto}/scalar` .
 ### MUETSRA DE FUNCIONAMIENTO DE CONSULTA DE TODOS LOS PACIENTES
 ![ConsultaPacientes](Infrastructure/SQL/funcionamientoPaciente.png)
 ---
-###IMPORTANTE!!!  EL SCRIPT CON EL DISEÑO DE LAS TABLAS, DE STORES PROCEDURES Y DATOS DE PRUEBA SE ENCUENTRAN EN LA RUTA TEMPORAL: Infrastructure/SQL/Script_MiniAgendaMedica.sql
+### **IMPORTANTE!!!  EL SCRIPT CON EL DISEÑO DE LAS TABLAS, DE STORES PROCEDURES Y DATOS DE PRUEBA SE ENCUENTRAN EN LA RUTA TEMPORAL: Infrastructure/SQL/Script_MiniAgendaMedica.sql**
 
 ---
 
