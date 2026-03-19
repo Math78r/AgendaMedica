@@ -404,7 +404,9 @@ dotnet run
 La API estará disponible en `https://localhost:{puerto}/swagger` (una vez integrado Swagger).
 
 ---
-
+### Diagrama de base de datos
+![Diagrama BD V1](SQL/diagrama_bd_v1.png)
+![Diagrama BD V2](SQL/diagrama_bd_v2.png)
 ---
 ## Licencia
 
