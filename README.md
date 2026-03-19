@@ -401,7 +401,7 @@ cd AgendaMedica.API
 dotnet run
 ```
 
-La API estará disponible en `https://localhost:{puerto}/swagger` (una vez integrado Swagger).
+La API estará disponible en `https://localhost:{puerto}/scalar` .
 
 ---
 ### Diagrama de base de datos
