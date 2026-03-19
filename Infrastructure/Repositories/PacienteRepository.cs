@@ -1,7 +1,7 @@
 ﻿using Application.DTOs.Pacientes;
+using Application.Interfaces;
 using Dapper;
 using Domain.Entities;
-using Domain.Interfaces;
 using Infrastructure.Models;
 using Infrastructure.Persistence.Dapper;
 

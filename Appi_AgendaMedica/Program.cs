@@ -1,6 +1,5 @@
-using Application.Interfaces.Repositories;
+using Application.Interfaces;
 using Application.Services;
-using Domain.Interfaces;
 using Infrastructure.Persistence.Dapper;
 
 using Scalar.AspNetCore;

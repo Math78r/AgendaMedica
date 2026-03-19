@@ -1,5 +1,5 @@
 ﻿using Application.DTOs.Pacientes;
-using Application.Interfaces.Repositories;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
