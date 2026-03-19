@@ -405,8 +405,8 @@ La API estará disponible en `https://localhost:{puerto}/swagger` (una vez integ
 
 ---
 ### Diagrama de base de datos
-![Diagrama BD V1](SQL/diagrama_bd_v1.png)
-![Diagrama BD V2](SQL/diagrama_bd_v2.png)
+![Diagrama BD V1](Infrastructure/SQL/diagrama_bd_v1.png)
+![Diagrama BD V2](Infrastructure/SQL/diagrama_bd_v2.png)
 ---
 ## Licencia
 
