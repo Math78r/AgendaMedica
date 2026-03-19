@@ -22,4 +22,9 @@
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SQL\Scripts\" />
+    <Folder Include="SQL\StoredProcedures\" />
+  </ItemGroup>
+
 </Project>
